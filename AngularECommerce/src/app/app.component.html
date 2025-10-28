@@ -1,1 +1,6 @@
-Hello world!
+<div class="row">
+    <i class="bi bi-0-circle"></i>    
+    <p class="col-xs-2">Hello world!</p>
+</div>
+
+<ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next" />
