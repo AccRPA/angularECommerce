@@ -8,6 +8,10 @@ import { DatePickerModule } from 'primeng/datepicker';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
+import { CardModule } from 'primeng/card';
+import { ProductsService } from './services/products.service';
+import { ProductModel } from './models/product.model';
+import { JsonPipe } from '@angular/common';
 
 @Component({
     selector: 'app-root',
@@ -20,7 +24,9 @@ import { InputTextModule } from 'primeng/inputtext';
       DatePickerModule,
       IconFieldModule,
       InputIconModule,
-      InputTextModule
+      InputTextModule,
+      CardModule,
+      JsonPipe
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.sass',
@@ -32,5 +38,12 @@ export class AppComponent {
   date: { year: number; month: number; } | undefined;
   visible = false;
   checked = false;
-  date2 = Date.now();
+  date2: Date | undefined;
+  products: ProductModel[] | undefined = [];
+
+  constructor(private productSrv: ProductsService){}
+
+  ngOnInit(){
+    this.productSrv.getProducts().subscribe((products) => this.products = products.products);
+  }
 }

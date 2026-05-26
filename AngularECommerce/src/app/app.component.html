@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <i class="bi bi-0-circle"></i>    
     <p class="col-xs-2">Hello world!</p>
 </div>
@@ -21,9 +21,34 @@
 <div class="input-group mb-3">
     <span class="input-group-text" id="basic-addon1">&#64;</span>
     <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-</div>
+</div> -->
 
-<p-iconfield>
+<!-- <p-iconfield>
     <p-inputicon styleClass="pi pi-search" />
     <input type="text" pInputText placeholder="Search" />
-</p-iconfield>
+</p-iconfield> -->
+
+<div class="card-container">
+@for(product of products; track product.id){
+    <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
+        <ng-template pTemplate="header">
+            <img alt="Card" class="card-image" [src]="product.thumbnail" />
+        </ng-template>
+        <ng-template pTemplate="title"> {{product.title}} </ng-template>
+        <ng-template pTemplate="subtitle"> {{product.category}} </ng-template>
+        <p>
+            {{product.description}}
+        </p>
+        <ng-template pTemplate="footer">
+            <div class="">
+                <p-button label="Add to cart" class="w-full" styleClass="w-full" />
+            </div>
+        </ng-template>
+    </p-card>
+    
+    <!-- <img [src]="product.thumbnail">
+    @for(image of product.images; track image){
+        <img [src]="image">
+    } -->
+}
+</div>
