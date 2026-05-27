@@ -1,0 +1,25 @@
+
+<div class="card-container">
+    @for(product of products; track product.id){
+        <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
+            <ng-template pTemplate="header">
+                <img alt="Card" class="card-image" [src]="product.thumbnail" />
+            </ng-template>
+            <ng-template pTemplate="title"> {{product.title}} </ng-template>
+            <ng-template pTemplate="subtitle"> {{product.category}} </ng-template>
+            <p>
+                {{product.description}}
+            </p>
+            <ng-template pTemplate="footer">
+                <div class="">
+                    <p-button label="Add to cart" class="w-full" styleClass="w-full" (click)="addToCart()"/>
+                </div>
+            </ng-template>
+        </p-card>
+        
+        <!-- <img [src]="product.thumbnail">
+        @for(image of product.images; track image){
+            <img [src]="image">
+        } -->
+    }
+    </div>

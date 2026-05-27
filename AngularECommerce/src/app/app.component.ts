@@ -1,49 +1,16 @@
 import { Component } from '@angular/core';
-import { NgbDateStruct, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
-import { ButtonModule } from 'primeng/button';
-import { DrawerModule } from 'primeng/drawer';
-import { ToggleSwitchModule } from 'primeng/toggleswitch';
-import { DatePickerModule } from 'primeng/datepicker';
-import { IconFieldModule } from 'primeng/iconfield';
-import { InputIconModule } from 'primeng/inputicon';
-import { InputTextModule } from 'primeng/inputtext';
-import { CardModule } from 'primeng/card';
-import { ProductsService } from './services/products.service';
-import { ProductModel } from './models/product.model';
-import { JsonPipe } from '@angular/common';
-
+import { MenuComponent } from './components/menu/menu.component';
+import { ProductsComponent } from './components/products/products.component';
 @Component({
     selector: 'app-root',
     imports: [
-      NgbDatepickerModule, 
-      FormsModule, 
-      ButtonModule, 
-      DrawerModule, 
-      ToggleSwitchModule, 
-      DatePickerModule,
-      IconFieldModule,
-      InputIconModule,
-      InputTextModule,
-      CardModule,
-      JsonPipe
+      ProductsComponent,
+      MenuComponent
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.sass',
     host: { ngSkipHydration: '' }
 })
 export class AppComponent {
-  title = 'AngularECommerce';
-  model: NgbDateStruct | undefined;
-  date: { year: number; month: number; } | undefined;
-  visible = false;
-  checked = false;
-  date2: Date | undefined;
-  products: ProductModel[] | undefined = [];
-
-  constructor(private productSrv: ProductsService){}
-
-  ngOnInit(){
-    this.productSrv.getProducts().subscribe((products) => this.products = products.products);
-  }
+  constructor(){}
 }
