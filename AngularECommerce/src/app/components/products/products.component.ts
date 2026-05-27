@@ -4,7 +4,6 @@ import { ProductModel } from '../../models/product.model';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
-import { JsonPipe } from '@angular/common';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -12,8 +11,7 @@ import { CartService } from '../../services/cart.service';
   imports: [    
     FormsModule, 
     ButtonModule,
-    CardModule,
-    JsonPipe
+    CardModule
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.sass'

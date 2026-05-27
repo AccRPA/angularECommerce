@@ -1,8 +1,12 @@
-<div>
-    <p-button (click)="drawerVisible = true" icon="pi pi-arrow-right" />
+<div class="menu-section">
+    <p-button (click)="drawerVisible = true" icon="pi pi-bars" />
     <div></div>
-    <div>
-        {{ counter }}
+    <div class="counter-item">
+        <!-- <p-overlaybadge value="{{ counter }}" badgeSize="small">
+            <i class="pi pi-shopping-cart"></i>
+        </p-overlaybadge> -->
+
+        <p-button badge="{{ counter }}" icon="pi pi-bell" badgeSize="small"/>
     </div>
 </div>
 
