@@ -1,9 +1,9 @@
 
 <div class="card-container">
-    @for(product of products; track product.id){
+    @for(product of products$ | async; track product.id){
         <p-card>
             <ng-template pTemplate="header">
-                <img alt="Card" class="card-image" [src]="product.thumbnail" [routerLink]="'product/' + product.id"/>
+                <img alt="Card" class="card-image" [src]="product.thumbnail" [routerLink]="['product', product.id]"/>
             </ng-template>
             <ng-template pTemplate="title"> {{product.title}} </ng-template>
             <ng-template pTemplate="subtitle"> {{product.category}} </ng-template>
