@@ -13,8 +13,8 @@ export class ProductsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getProducts(): Observable<ProductModel[] | undefined>{
-    return this.httpClient.get<ProductsModel>('https://dummyjson.com/products?limit=0&skip=0')
+  getProducts(limit: number, skip: number): Observable<ProductModel[] | undefined>{
+    return this.httpClient.get<ProductsModel>('https://dummyjson.com/products?limit=' + limit + '&skip=' + skip)
     .pipe(
       map((response: ProductsModel) => response.products)
     );

@@ -18,3 +18,11 @@
         </p-card>
     }
 </div>
+<div>
+    <p-paginator 
+    (onPageChange)="onPageChange($event)" 
+    [first]="first" 
+    [rows]="rows" 
+    [totalRecords]="1000" 
+    [rowsPerPageOptions]="rowsPerPage" />
+</div>
