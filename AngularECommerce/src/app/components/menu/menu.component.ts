@@ -4,6 +4,7 @@ import { DrawerModule } from 'primeng/drawer';
 import { CartService } from '../../services/cart.service';
 import { BadgeModule } from 'primeng/badge';
 import { OverlayBadgeModule } from 'primeng/overlaybadge';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +12,8 @@ import { OverlayBadgeModule } from 'primeng/overlaybadge';
     DrawerModule,
     ButtonModule,
     BadgeModule,
-    OverlayBadgeModule
+    OverlayBadgeModule,
+    RouterModule
   ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.sass'
