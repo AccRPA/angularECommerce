@@ -2,18 +2,14 @@
     <p-button (click)="drawerVisible = true" icon="pi pi-bars" />
     <div></div>
     <div class="counter-item">
-        <!-- <p-overlaybadge value="{{ counter }}" badgeSize="small">
-            <i class="pi pi-shopping-cart"></i>
-        </p-overlaybadge> -->
-
         <p-button badge="{{ counter }}" icon="pi pi-bell" badgeSize="small"/>
     </div>
 </div>
 
-<p-drawer [(visible)]="drawerVisible" header="Drawer">
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat.
-    </p>
+<p-drawer [(visible)]="drawerVisible" header="Menu">
+    <ul>
+        <li>
+            <a href="">Catalog</a>
+        </li>
+    </ul>
 </p-drawer>

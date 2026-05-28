@@ -5,13 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { CartService } from '../../services/cart.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-products',
   imports: [    
     FormsModule, 
     ButtonModule,
-    CardModule
+    CardModule,
+    RouterModule
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.sass'
