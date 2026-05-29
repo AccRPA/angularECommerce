@@ -4,13 +4,14 @@ import { ProductsService } from '../../services/products.service';
 import { Observable, Subscription } from 'rxjs';
 import { AsyncPipe, JsonPipe } from '@angular/common';
 import { ProductDetailsModel } from '../../models/product-details.model';
-
+import { GalleriaModule } from 'primeng/galleria';
 @Component({
   selector: 'app-product-details',
   imports: [
     JsonPipe,
     AsyncPipe,
-    RouterLink
+    RouterLink,
+    GalleriaModule
   ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.sass'

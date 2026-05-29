@@ -5,3 +5,18 @@
 @for(image of product.images; track image){
     <img [src]="image">
 } -->
+@if(productDetail$ | async; as details) {
+    <p-galleria [value]="details.images" 
+    [indicatorsPosition]="'bottom'" 
+    [showIndicators]="true" 
+    [showThumbnails]="false" 
+    [showIndicatorsOnItem]="true" 
+        [containerStyle]="{ 'max-width': '640px', 'margin-top': '2em' }" >
+        <ng-template pTemplate="item" let-item>
+            <img [src]="item" style="width: 100%; display: block;" />
+        </ng-template>
+    </p-galleria>
+    {{ productDetail$ | async | json}}
+}@else{
+    no data
+}
