@@ -64,6 +64,6 @@ export class ProductsComponent {
   }
   
   private setProducts(){
-    this.products$ = this.productSrv.getCacheProducts(this.rows, this.rows * this.page);
+    this.products$ = this.productSrv.getCacheProducts(this.rows, this.rows * this.page, this.page);
   }
 }

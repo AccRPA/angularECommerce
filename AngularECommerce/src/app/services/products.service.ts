@@ -11,7 +11,7 @@ import { PageEventModel } from '../models/pageEvent.model';
 })
 export class ProductsService {
 
-  private cacheProducts: ProductModel[] = [];
+  private cacheProducts: Map<number, ProductModel[]> = new Map();
   private pagination: PageEventModel = {
     first: 0,
     rows: 10,
@@ -21,11 +21,11 @@ export class ProductsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getProducts(limit: number, skip: number): Observable<ProductModel[] | undefined>{
+  getProducts(limit: number, skip: number, page: number): Observable<ProductModel[] | undefined>{
     return this.httpClient.get<ProductsModel>('https://dummyjson.com/products?limit=' + limit + '&skip=' + skip)
     .pipe(
       map((response: ProductsModel) => {
-        this.setCacheProducts(response.products);
+        this.setCacheProducts(page, response.products);
         return response.products;
       })
     );
@@ -35,22 +35,22 @@ export class ProductsService {
     return this.httpClient.get<ProductDetailsModel>('https://dummyjson.com/products/' + id);
   }
 
-  setCacheProducts(products: ProductModel[] | undefined){
+  setCacheProducts(page:number, products: ProductModel[] | undefined){
     if (products?.length){
-      this.cacheProducts.push(...products);
+      this.cacheProducts.set(page, [...products]);
     }
   }
 
-  getCacheProducts(limit: number, skip: number): Observable<ProductModel[] | undefined>{
-    const result = this.cacheProducts.slice(skip, skip + limit);
+  getCacheProducts(limit: number, skip: number, page:number): Observable<ProductModel[] | undefined>{
+    const result = this.cacheProducts.get(page);
     if (!result?.length){
-      return this.getProducts(limit, skip);
+      return this.getProducts(limit, skip, page);
     }
     return of(result);
   }
 
   clearCacheProducts(){
-    this.cacheProducts = [];
+    this.cacheProducts.clear();
   }
 
   setPagination(page: PageEventModel){
