@@ -9,7 +9,7 @@
 <p-drawer [(visible)]="drawerVisible" header="Menu">
     <ul>
         <li>
-            <a [routerLink]="''">Catalog</a>
+            <a [routerLink]="''" (click)="drawerVisible = false">Catalog</a>
         </li>
     </ul>
 </p-drawer>

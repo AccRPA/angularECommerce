@@ -13,6 +13,8 @@
                     [showThumbnails]="false"
                     [showItemNavigators]="true"
                     [showIndicatorsOnItem]="true" 
+                    [autoPlay]="true" 
+                    [circular]="true"
                     [containerStyle]="{ 'max-width': '640px' }" >
                     <ng-template pTemplate="item" let-item>
                         <img [src]="item" style="width: 100%; display: block;" />
@@ -31,7 +33,7 @@
                     <div>
                         <p>Shipping</p>
                         <p>Discount: {{ details.discountPercentage }}%</p>
-                        <p>Brand: {{ details.brand }}</p>
+                        <p *ngIf="details.brand">Brand: {{ details.brand }}</p>
                         <p>Warranty: {{ details.warrantyInformation }}</p>
                         <p>Info: {{ details.shippingInformation }}</p>
                         <p>Availability: {{ details.availabilityStatus }}</p>
