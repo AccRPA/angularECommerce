@@ -3,7 +3,7 @@
     [value]="details.reviews"
     [numVisible]="1"
     [numScroll]="1"
-    [circular]="false">
+    [circular]="true">
         <ng-template let-review #item>
             <p-card header="{{ review.reviewerName }}">
                 <p-rating [ngModel]="review.rating" [readonly]="true" />
