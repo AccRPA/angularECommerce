@@ -1,5 +1,5 @@
 <p-button label="Go back" [link]="true" routerLink="" class="product-goBack-btn"/>
-
+    
 @if(productDetail$ | async; as details) {
     @if(!details){
         <div>
@@ -26,23 +26,22 @@
                 </div>
             </div>
             <div class="product-details-reviews">
-                Score: {{details.rating}}
-                Total: {{ details.reviews.length || 0}}
-                <p-rating [ngModel]="details.rating" [readonly]="true" />
-                @for(review of details.reviews; track review.reviewerEmail){
-                    <div>
-                        <p>{{ review.reviewerName }}</p>
-                        <p-rating [ngModel]="review.rating" [readonly]="true" />
-                        <p>{{ review.comment }}</p>
-                    </div>
-                }
+                <p>Rating and reviews</p>
+                <div>
+                    <product-details-review [details]="details"></product-details-review>
+                    <product-details-comments [details]="details"></product-details-comments>             
+                </div>
             </div>
         </div>
     }
 }@else{
-    <p-skeleton styleClass="mb-2" />
-    <p-skeleton width="10rem" styleClass="mb-2" />
-    <p-skeleton width="5rem" styleClass="mb-2" />
-    <p-skeleton height="2rem" styleClass="mb-2" />
-    <p-skeleton width="10rem" height="4rem" />
+    <div class="product-details-skeleton">
+        <p-skeleton width="25rem" height="22rem" />
+        <div>
+            <p-skeleton />
+            <p-skeleton width="10rem" />
+            <p-skeleton width="5rem"/>
+            <p-skeleton height="2rem" />
+        </div>
+    </div>
 }

@@ -10,6 +10,8 @@ import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { ProductDetailsInfoComponent } from '../product-details-info/product-details-info.component';
 import { ButtonModule } from 'primeng/button';
+import { ProductDetailsReviewComponent } from '../product-details-review/product-details-review.component';
+import { ProductDetailsCommentsComponent } from '../product-details-comments/product-details-comments.component';
 
 @Component({
   selector: 'app-product-details',
@@ -21,7 +23,9 @@ import { ButtonModule } from 'primeng/button';
     SkeletonModule,
     RatingModule,
     ButtonModule,
-    ProductDetailsInfoComponent
+    ProductDetailsInfoComponent,
+    ProductDetailsReviewComponent,
+    ProductDetailsCommentsComponent
   ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.sass'

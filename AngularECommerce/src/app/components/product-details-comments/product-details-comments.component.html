@@ -1,3 +1,10 @@
 @if(details){
-    
+    @for(review of details.reviews; track review.reviewerEmail){
+        <div class="comment-card">
+            <p-card header="{{ review.reviewerName }}">
+                <p-rating [ngModel]="review.rating" [readonly]="true" />
+                <p>{{ review.comment }}</p>
+            </p-card>
+        </div>
+    }  
 }

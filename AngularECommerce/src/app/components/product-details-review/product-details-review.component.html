@@ -1,3 +1,11 @@
 @if(details){
-    
+    <div>
+        <div>
+            <div class="rating">{{details.rating}}</div>
+            <div class="total-reviews">({{ details.reviews.length || 0}} reviews)</div>
+        </div>
+        <div>
+            <p-rating [ngModel]="details.rating" [readonly]="true" />
+        </div>
+    </div>
 }
