@@ -1,4 +1,5 @@
-<a routerLink="">Go back</a>
+<p-button label="Go back" [link]="true" routerLink="" class="product-goBack-btn"/>
+
 @if(productDetail$ | async; as details) {
     @if(!details){
         <div>
@@ -21,23 +22,70 @@
                     </ng-template>
                 </p-galleria>
                 <div class="product-details-description">
-                    <div>{{ details.category }}</div>
-                    <div>{{ details.title }}</div>
-                    <div>{{ details.price | currency }}</div>
-                    <div>Info Stock {{ details.stock }}</div>
-                    <div><button>Add to cart</button></div>
-                    <div>
-                        <p>Description and fit</p>
-                        <p>{{ details.description }}</p>
+                    <div class="product-category">{{ details.category }}</div>
+                    <div class="product-title">{{ details.title }}</div>
+                    <div class="product-price">{{ details.price | currency }}</div>
+                    <div class="product-stock">
+                        <i class="pi pi-info-circle"></i>
+                        <span>Stock {{ details.stock }}</span>
                     </div>
                     <div>
-                        <p>Shipping</p>
-                        <p>Discount: {{ details.discountPercentage }}%</p>
-                        <p *ngIf="details.brand">Brand: {{ details.brand }}</p>
-                        <p>Warranty: {{ details.warrantyInformation }}</p>
-                        <p>Info: {{ details.shippingInformation }}</p>
-                        <p>Availability: {{ details.availabilityStatus }}</p>
-                        <p>Return Policy: {{ details.returnPolicy }}</p>
+                        <p-button label="Add to cart" (click)="addToCart()" [rounded]="true" class="product-addCart"/>
+                    </div>
+                    <div class="product-description-fit">
+                        <p-panel header="Description and fit" [toggleable]="true">
+                            <p class="product-fit">
+                                {{ details.description }}
+                            </p>
+                        </p-panel>
+                    </div>
+                    <div>
+                        <p-panel header="Shipping" [toggleable]="true">
+                            <div class="product-shipping">
+                                <div>
+                                    <i class="pi pi-percentage"></i>
+                                    <div>
+                                        <span>Discount</span> 
+                                        <span>{{ details.discountPercentage }}%</span>
+                                    </div>
+                                </div>
+                                <div *ngIf="details.brand">
+                                    <i class="pi pi-sparkles"></i>
+                                    <div>
+                                        <span>Brand</span>
+                                        <span>{{ details.brand }}</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <i class="pi pi-calendar"></i>
+                                    <div>
+                                        <span>Warranty</span>
+                                        <span>{{ details.warrantyInformation }}</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <i class="pi pi-box"></i>
+                                    <div>
+                                        <span>Info</span>
+                                        <span>{{ details.shippingInformation }}</span>                                        
+                                    </div>
+                                </div>
+                                <div>
+                                    <i class="pi pi-inbox"></i>
+                                    <div>
+                                        <span>Availability</span>
+                                        <span>{{ details.availabilityStatus }}</span>                                        
+                                    </div>
+                                </div>
+                                <div>
+                                    <i class="pi pi-history"></i>
+                                    <div>
+                                        <span>Return Policy</span>
+                                        <span>{{ details.returnPolicy }}</span>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </p-panel>                        
                     </div>
                 </div>
             </div>

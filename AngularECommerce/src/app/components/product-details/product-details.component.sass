@@ -4,8 +4,79 @@
 .product-detils-container
     display: flex
     flex-direction: column
+    row-gap: 2rem
 
     .product-details-info
         display: grid
         grid-template-columns: repeat(2, 1fr)
         gap: 1rem
+
+    .product-details-description
+        display: flex
+        flex-direction: column
+        row-gap: 5px
+
+    .product-category
+        padding: 5px 10px
+        border: 1px solid #e2e8f0
+        border-radius: 2rem
+        font-size: 0.8rem
+        text-align: center
+        width: fit-content
+
+    .product-title,
+    .product-price
+        font-size: 1.2rem
+        font-weight: 500
+
+    .product-stock
+        padding: 5px 10px
+        border: 1px solid #e2e8f0
+        border-radius: 2rem
+        font-size: 0.8rem
+        display: flex
+        align-items: center
+        column-gap: 10px
+        margin: 10px 0px
+
+    .product-description-fit
+        margin-bottom: 10px
+
+    .product-fit,
+    .product-shipping
+        font-size: 0.8rem
+
+    .product-shipping
+        display: grid
+        grid-template-columns: 1fr 1fr
+        row-gap: 15px
+
+        div
+            display: flex
+            flex-direction: row 
+            align-items: self-start
+            column-gap: 10px        
+            i
+                background-color:  #e2e8f0
+                border-radius: 50%
+                padding: 10px
+            div
+                display: grid
+                grid-template-rows: 1fr 1fr
+                margin-bottom: 10px
+                
+                span:first-child
+                    color: #a5aab1
+                span:last-child
+                    font-weight: 500
+
+
+::ng-deep
+    .product-addCart
+        button
+            width: 100%
+            margin-bottom: 10px
+
+    .product-goBack-btn
+        button
+            padding: 0
