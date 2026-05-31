@@ -1,10 +1,14 @@
 @if(details){
-    @for(review of details.reviews; track review.reviewerEmail){
-        <div class="comment-card">
+    <p-carousel
+    [value]="details.reviews"
+    [numVisible]="1"
+    [numScroll]="1"
+    [circular]="false">
+        <ng-template let-review #item>
             <p-card header="{{ review.reviewerName }}">
                 <p-rating [ngModel]="review.rating" [readonly]="true" />
                 <p>{{ review.comment }}</p>
             </p-card>
-        </div>
-    }  
+        </ng-template>
+    </p-carousel>
 }
