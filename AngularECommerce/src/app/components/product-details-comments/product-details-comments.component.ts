@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ProductDetailsModel } from '../../models/product-details.model';
 
 @Component({
   selector: 'product-details-comments',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './product-details-comments.component.sass'
 })
 export class ProductDetailsCommentsComponent {
-
+  @Input() details: ProductDetailsModel | undefined;
 }
