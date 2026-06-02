@@ -1,5 +1,7 @@
-{{ this.total$ | async }}
+Total products: {{ this.total$ | async }}
 @for(product of productsInBasket$ | async; track product.idInBasket){
-    {{ product.title }} {{ product.price | currency }} 
-    <button (click)="onDeleteProductInBasket(product.idInBasket)">Delete</button>
+    <div>
+        {{ product.title }} {{ product.price | currency }} 
+        <button (click)="onDeleteProductInBasket(product.idInBasket)">Delete</button>
+    </div>
 }
