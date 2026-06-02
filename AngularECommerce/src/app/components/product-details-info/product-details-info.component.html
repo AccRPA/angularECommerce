@@ -7,7 +7,7 @@
         <span>Stock {{ details.stock }}</span>
     </div>
     <div>
-        <p-button label="Add to cart" (click)="addToCart()" [rounded]="true" class="product-addCart"/>
+        <p-button label="Add to cart" (click)="addToCart(details)" [rounded]="true" class="product-addCart"/>
     </div>
     <div class="product-description-fit">
         <p-panel header="Description and fit" [toggleable]="true">

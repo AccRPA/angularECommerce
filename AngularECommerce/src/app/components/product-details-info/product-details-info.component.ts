@@ -4,6 +4,7 @@ import { ButtonModule } from 'primeng/button';
 import { PanelModule } from 'primeng/panel';
 import { ProductDetailsModel } from '../../models/product-details.model';
 import { CartService } from '../../services/cart.service';
+import { ProductModel } from '../../models/product.model';
 
 @Component({
   selector: 'product-details-info',
@@ -21,7 +22,7 @@ export class ProductDetailsInfoComponent {
 
   constructor(private cartSrv: CartService){}
 
-  addToCart(){
-    this.cartSrv.addProduct();
+  addToCart(product: ProductDetailsModel){
+    this.cartSrv.addProduct(product as ProductModel);
   }
 }

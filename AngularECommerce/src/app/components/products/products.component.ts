@@ -46,8 +46,8 @@ export class ProductsComponent {
     this.setProducts();
   }
 
-  addToCart(){
-    this.cartSrv.addProduct();
+  addToCart(product: ProductModel){
+    this.cartSrv.addProduct(product);
   }
 
   onPageChange(event: PaginatorState){

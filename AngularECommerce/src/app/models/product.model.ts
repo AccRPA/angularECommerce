@@ -1,7 +1,9 @@
 import { ProductDimensionsModel } from "./product-dimensions.model";
 import { ProductMetaModel } from "./product-meta.model";
+import { ProductReviewModel } from "./product-review.model";
 
-export interface ProductModel {    
+export interface ProductModel {  
+    idInBasket: number;
     id: number;
     title: string;
     description: string;
@@ -18,7 +20,7 @@ export interface ProductModel {
     warrantyInformation: string;
     shippingInformation: string;
     availabilityStatus: string;
-    reviews: string[];
+    reviews: ProductReviewModel[];
     returnPolicy: string;
     minimumOrderQuantity: number;
     meta: ProductMetaModel;
