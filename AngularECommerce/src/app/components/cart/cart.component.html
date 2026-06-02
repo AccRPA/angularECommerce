@@ -1,7 +1,13 @@
 Total products: {{ this.total$ | async }}
+<div>
 @for(product of productsInBasket$ | async; track product.idInBasket){
     <div>
-        {{ product.title }} {{ product.price | currency }} 
-        <button (click)="onDeleteProductInBasket(product.idInBasket)">Delete</button>
+        <span>
+            <img src="{{ product.thumbnail }}">
+        </span>
+        <span>{{ product.title }}</span> 
+        <span>{{ product.price | currency }}</span>
+        <p-button label="Delete" (click)="onDeleteProductInBasket(product.idInBasket)" [rounded]="true" class="product-addCart"/>
     </div>
 }
+</div>

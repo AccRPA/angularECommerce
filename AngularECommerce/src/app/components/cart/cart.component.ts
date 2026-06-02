@@ -3,12 +3,14 @@ import { CartService } from '../../services/cart.service';
 import { AsyncPipe, CurrencyPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { ProductModel } from '../../models/product.model';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-cart',
   imports: [
     AsyncPipe,
-    CurrencyPipe
+    CurrencyPipe,
+    ButtonModule
   ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.sass'
