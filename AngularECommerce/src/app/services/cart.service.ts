@@ -14,6 +14,9 @@ export class CartService {
   private counterBs = new BehaviorSubject<number>(0);
   public counterBs$ = this.counterBs.asObservable();
 
+  private totalBs = new BehaviorSubject<number>(0);
+  public totalBs$ = this.totalBs.asObservable();
+
   constructor() { }
 
   getCounter(){
@@ -38,5 +41,9 @@ export class CartService {
   private updateObservables(){
     this.productsBs.next(this.products);
     this.counterBs.next(this.products.length);
+    this.totalBs.next(this.products.reduce((accumulator, item) => {
+      accumulator += item.price;
+      return accumulator;
+    }, 0))
   }
 }

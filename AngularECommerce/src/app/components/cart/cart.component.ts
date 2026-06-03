@@ -19,10 +19,12 @@ export class CartComponent {
 
   public total$: Observable<number>;
   public productsInBasket$: Observable<ProductModel[]>;
+  public totalSum$: Observable<number>;
 
   constructor(private cartSrv: CartService){
     this.total$ = this.cartSrv.counterBs$;
     this.productsInBasket$ = this.cartSrv.productsBs$;
+    this.totalSum$ = this.cartSrv.totalBs$;
   }
 
   onDeleteProductInBasket(idInBasket: number){
